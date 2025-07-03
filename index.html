@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: sans-serif;
+      background-color: #f0dcb4;
+      color: #333;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin: 0.5rem 0;
+      cursor: pointer;
+    }
+    input[type="checkbox"] {
+      margin-right: 0.5rem;
+    }
+    button {
+      margin-top: 2rem;
+      padding: 0.7rem 1.2rem;
+      font-size: 1rem;
+      background-color: #ffe4e1;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      cursor: pointer;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #score {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Omorashi Purity Test</h1>
+  <H2>By @OmoKamie on twitter!</H2>
+  <div id="checklist"></div>
+
+  <button onclick="showScore()">Show My Score</button>
+  <div id="score"></div>
+
+  <script>
+    const questions = `1 - Accidentally wet yourself?
+2 - Intentionally wet yourself?
+3 - wet yourself in total over 10 times as an adult?
+4 - Overestimated your bladder's capacity and ended up over limit way sooner than expected?
+5 - Had someone control your bathroom rights?
+6 - Controlled someone's bathroom rights?
+7 - Had a bladder bulge?
+8 - Intentionally pressed your bladder?
+9 - Leaked on purpose?
+10 - Masturbated in soaked clothes?
+11 - Intentionally held it in public?
+12 - Intentionally wet yourself in public?
+13 - Skipped bathroom break, even tho you shouldn't purely because of horniness?
+14 - Potty danced?
+15 - Recorded yourself being desperate/wetting?
+16 - Took pictures of your accident?
+17 - Begged for permission to use bathroom?
+18 - Drank pee? 
+19 - Witnessed someone wetting themselves?
+20 - Really hoped someone desperate wets themselves, even if it would be embarrassing for them
+21 - Leaked because of laughing?
+22 - Fully peed yourself because of laughing?
+23 - Leaked because of being tickled?
+24 - Fully peed yourself because of being tickled?
+25 - Peed yourself while playing video game?
+26 - Peed yourself while reading a book/manga etc?
+27 - Peed yourself while watching show/movie/anime etc?
+28 - Peed yourself while drawing?
+29 - Didn't realize you leaked enough to where it shows on your pants already?
+30 - Hold it in while in VC with someone who isn't into omo?
+31 - Had them realize you are desperate off your voice?
+32 - Been asked by someone if you're okay because of how desperate you look?
+33 - Lied to someone that you don't need to use bathroom, even tho you REALLY do?
+34 - Peed yourself at work? 
+35 - Peed yourself on public transport?
+36 - Peed yourself while driving?
+37 - Masturbated whilst having a full bladder?
+38 - Used a sex toy whilst having a full bladder?
+39 - Had sex whilst having a full bladder?
+40 - Made someone pee themselves indirectly (By commanding them to hold it in/telling them to pee themselves etc)?
+41 - Made someone pee themselves directly (By tickling them, pushing their bladder, etc)?
+42 - Drawn omorashi artwork?
+43 - Commissioned omorashi artwork?
+44 - Edited an image so it appears as someone wet themselves?
+45 - Looked up art of character wetting themselves, only to be disappointed in lack there of?
+46 - Played Omorashi video games?
+47 - Have you played Mojique?
+48 - Have you played NoMaKo?
+49 - Have you used mods in video games to create a bladder meter?
+50 - Peed yourself whilst in VR?
+51 - Accidentally wet your bed?
+52 - Intentionally wet your bed?
+53 - Has it happened while you were awake?
+54 - Skipped morning pee?
+55 - Intentionally went to sleep with a full bladder?
+56 - Woke up with a full bladder, and just went back to sleep?
+57 - Peed in the shower?
+58 - Peed in a public pool?
+59 - Wore a diaper/pullup?
+60 - Had it leak?
+61 - Created an omorashi org account?
+62 - Paid to see a video of someone wetting themselves?
+63 - Used desperation scale? 
+64 - Simply gave up instead of waiting for urge to force itself out because the urge was too strong and tempting?
+65 - Had a REALLY close call where you barely made it to the bathroom?
+66 - Had teacher not let you use bathroom? 
+67 - Peed on someone? 
+68 - Held someone's... as they pee? 
+69 - Used urinal? 
+70 - Had to stop whatever you were doing to run to the bathroom, as otherwise you would have wet yourself?
+71 - Had someone interrupt your hold?
+72 - Used bathroom as a reward to do some chore? (Something like not peeing till you do dishes/clean house etc)
+73 - Wet yourself in the same clothes more than once after initially peeing yourself in them?
+74 - Not used a toilet for over 24h
+75 - Peed like a puppy in public? 
+76 - Participated in a pee holding contest?
+77 - Peed in a bottle?
+78 - Measured your bladder's capacity?
+79 - Had an UTI because of holding it too often?
+80 - Read an omo fanfic?
+81 - Wrote an omo fanfic?
+82 - REALLY regretted not using bathroom?
+83 - Were stuck in a traffic whilst desperate?
+84 - Had to remove your underwear, because you leaked in it so much whilst wearing a skirt? 
+85 - Peed yourself to warm yourself up? 
+86 - Trained your bladder to hold bigger capacity?
+87 - Did exercises with a full bladder? 
+88 - Went to a public gym with a full bladder?
+89 - Lied down on your belly whilst having really full bladder?
+90 - Made it even harder by putting something hard underneath your bladder?
+91 - Peed yourself whilst experiencing an orgasm?
+92 - Started peeing yourself because of an audio of water/peeing etc?
+93 - Started peeing yourself because of video/gif of water/peeing etc?
+94 - Were teased by someone for being desperate?
+95 - Used a bathroom you are not supposed to use out of sheer desperation?
+96 - Been made fun of for peeing yourself?
+97 - Had someone find out about your kink?
+98 - Were really desperate at a cinema?
+99 - Had a peegasm?
+100 - Accidentally used toilet whilst doing a hold, fully autopiloting.`.split('\n');
+
+    const checklistDiv = document.getElementById('checklist');
+    const scoreDiv = document.getElementById('score');
+
+    questions.forEach((q, i) => {
+      const label = document.createElement('label');
+      const checkbox = document.createElement('input');
+      checkbox.type = 'checkbox';
+      checkbox.id = `q${i}`;
+      label.appendChild(checkbox);
+      label.appendChild(document.createTextNode(q));
+      checklistDiv.appendChild(label);
+    });
+
+    function showScore() {
+      const all = document.querySelectorAll('input[type="checkbox"]');
+      const checked = Array.from(all).filter(c => c.checked).length;
+      const purity = 100 - checked;
+      scoreDiv.textContent = `Your Omo purity score: ${purity}`;
+    }
+  </script>
+</body>
+</html>
